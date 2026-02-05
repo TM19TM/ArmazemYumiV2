@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Yumi Studio Art</title>
+    <link rel="stylesheet" href="Yumi.css">
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <h1 class="logo">YUMI</h1>
+        <div class="button-group">
+            <button id="openModal" class="btn-add-style">Novo Produto</button>
+            <button id="openStockModal" class="btn-add-style" style="margin-left: 10px; background-color: #f5c1d1;">Reposição</button>
+        </div>
+    </div>
+    <nav class="nav-menu">
+        <a href="#sec-Adesivo">Adesivos</a>
+        <a href="#sec-Boneco">Bonecos</a>
+        <a href="#sec-Brinco">Brincos</a>
+        <a href="#sec-Caneta">Canetas</a>
+        <a href="#sec-Chaveiro">Chaveiros</a>
+        <a href="#sec-Colar">Colares</a>
+        <a href="#sec-Fotocard">Fotocards</a>
+        <a href="#sec-PhoneStrap">PhoneStraps</a>
+        <a href="#sec-Pulseira">Pulseiras</a>
+    </nav>
+</header>
+
+<main id="catalogoCompleto"></main>
+
+<div id="modalOverlay" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="document.getElementById('modalOverlay').style.display='none'">×</span>
+        <h3>Novo Produto</h3>
+        <form id="formProduto">
+            <input type="text" id="nome" placeholder="Nome / Tema" required>
+            <select id="categoriaSelect" onchange="ajustarCampos()" required>
+                <option value="" disabled selected>Categoria</option>
+                <option value="Adesivo">Adesivo</option>
+                <option value="Boneco">Boneco</option>
+                <option value="Brinco">Brinco</option>
+                <option value="Caneta">Caneta</option>
+                <option value="Chaveiro">Chaveiro</option>
+                <option value="Colar">Colar</option>
+                <option value="Fotocard">Fotocard</option>
+                <option value="PhoneStrap">PhoneStrap</option>
+                <option value="Pulseira">Pulseira</option>
+            </select>
+            <div id="areaDinâmica"></div>
+            <div class="row">
+                <input type="number" id="quantidade" placeholder="Qtd" required>
+                <input type="number" step="0.01" id="valor" placeholder="Valor R$" required>
+            </div>
+            <input type="text" id="imagem" placeholder="Link do Drive" required>
+            <button type="submit" class="btn-save">Salvar no Banco</button>
+        </form>
+    </div>
+</div>
+
+<div id="stockModalOverlay" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="document.getElementById('stockModalOverlay').style.display='none'">×</span>
+        <h3>Reposição (+1)</h3>
+        <div id="listaReposição" style="max-height: 400px; overflow-y: auto;"></div>
+    </div>
+</div>
+
+<script src="Yumi.js"></script>
+</body>
+</html>
